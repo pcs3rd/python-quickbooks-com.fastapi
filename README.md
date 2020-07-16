@@ -4,10 +4,16 @@ This api's abilities should mirror what is made available through the library, m
 # Configuration options:  
 Oauth2 (Not available yet)  
  - True/false  
+ 
  - Username  
+ 
  - Password  
-listen
+listen  
+
  - Port  
+ 
  - address  
-returnJson
- - True/false
+ 
+returnJson  
+ - True/false  
+ 

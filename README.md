@@ -3,11 +3,11 @@ A rest api for Quickbooks POS that uses [python-quickbooks-com](https://github.c
 This api's abilities should mirror what is made available through the library, minus passing your own xml.
 # Configuration options:  
 Oauth2 (Not available yet)  
-  True/false  
-  Username  
-  Password  
+ - True/false  
+ - Username  
+ - Password  
 listen
-  Port  
-  address  
+ - Port  
+ - address  
 returnJson
-  True/false
+ - True/false

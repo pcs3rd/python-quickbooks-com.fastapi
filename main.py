@@ -10,9 +10,9 @@ qb = pyqb.open()
 tk = pyqb.begin(qb)
 #web server
 @api.get("/itemquery/{itemid}")
-async def read_item(item_id: str, q: Optional[str] = None):
+async def read_item(itemid: str, q: Optional[str] = None):
     if q:
-        returndata = xmltodict.parse(pyqb.itemquery(qb, tk, item_id))
+        returndata = xmltodict.parse(pyqb.itemquery(qb, tk, itemid))
         return returndata
     return {"Error: no itemid gaven. Gotta give to get."}
 

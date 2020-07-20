@@ -21,6 +21,7 @@ async def read_item(item_id):
 
 @api.get("/inventorydump")
 async def inventorydump():
+    print("Inventory being dumped and converted. This may take a while.")
     requestdata = xmltodict.parse(pyqb.inventory(qb, tk), dict_constructor=dict, encoding='utf-8')
     returndata = jsonable_encoder(requestdata)
     return returndata

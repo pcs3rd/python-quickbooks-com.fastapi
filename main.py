@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
 import qbcom as pyqb
 import xmltodict
 import json
@@ -13,12 +15,14 @@ tk = pyqb.begin(qb)
 #web server
 @api.get("/items/{item_id}")
 async def read_item(item_id):
-    returndata = json.dumps(xmltodict.parse(pyqb.itemquery(qb, tk, 43313), dict_constructor=dict, encoding='utf-8'))
-    return returndata
+    requestdata = xmltodict.parse(pyqb.itemquery(qb, tk, item_id), dict_constructor=dict, encoding='utf-8')
+    returndata = jsonable_encoder(requestdata)
+    return JSONResponse(content=returndata)
 
 @api.get("/inventorydump")
 async def inventorydump():
-    returndata = json.dumps(xmltodict.parse(pyqb.inventory(qb, tk), dict_constructor=dict, encoding='utf-8'))
+    requestdata = xmltodict.parse(pyqb.inventory(qb, tk), dict_constructor=dict, encoding='utf-8')
+    returndata = jsonable_encoder(requestdata)
     return returndata
 
 @api.get("/netinfo")

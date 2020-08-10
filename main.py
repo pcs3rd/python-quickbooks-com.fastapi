@@ -33,6 +33,5 @@ async def netinfo():
     host_ip = socket.gethostbyname(host_name)
     returndata = host_ip, host_name
     return returndata
-
 if __name__ == "__main__":
-    uvicorn.run("main:api", host="0.0.0.0", port=8000, log_level="info", workers=2)
+    uvicorn.run("main:api", host="0.0.0.0", port=8000, log_level="debug", reload=True)
